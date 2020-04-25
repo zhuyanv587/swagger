@@ -5,6 +5,9 @@ import com.example.swagger.pojo.Message;
 
 import java.util.List;
 
+/**
+ * @description : 消息服务接口
+ */
 public interface MessageService {
     List<Message> findAll();
     Message findOne(Long id);

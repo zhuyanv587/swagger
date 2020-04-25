@@ -1,6 +1,6 @@
 package com.example.swagger.exception;
 
-import com.example.message.common.ExceptionType;
+import com.example.swagger.common.ExceptionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class CustomException extends Exception {
+public class CustomException extends RuntimeException  {
     protected Integer code;
     protected String message;
     public CustomException(ExceptionType type){

@@ -1,4 +1,4 @@
-package com.example.message.common;
+package com.example.swagger.common;
 
 public enum ExceptionType {
 

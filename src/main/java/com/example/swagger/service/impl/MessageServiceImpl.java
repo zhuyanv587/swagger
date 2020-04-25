@@ -13,6 +13,7 @@ import java.util.List;
 public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageRepository repository;
+
     @Override
     public List<Message> findAll() {
         return repository.findAll();
@@ -34,7 +35,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message update(Message message) throws CustomException{
+    public Message update(Message message) throws CustomException {
         return repository.update(message);
     }
 

@@ -2,17 +2,23 @@ package com.example.swagger.repository.impl;
 
 import com.example.swagger.pojo.Message;
 import com.example.swagger.repository.MessageRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Repository
+
+/**
+ * @description : Message的数据接口实现类
+ */
+
+@Service
 public class MessageRepositoryImpl implements MessageRepository {
     private static AtomicLong counter = new AtomicLong();
-    private final ConcurrentHashMap<Long,Message> msgs = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Long, Message> msgs = new ConcurrentHashMap<>();
+
     @Override
     public List<Message> findAll() {
         return new ArrayList<>(this.msgs.values());
@@ -26,11 +32,11 @@ public class MessageRepositoryImpl implements MessageRepository {
     @Override
     public Message save(Message message) {
         Long id = message.getId();
-        if (id == null){
+        if (id == null) {
             id = counter.incrementAndGet();
             message.setId(id);
         }
-        this.msgs.put(id,message);
+        this.msgs.put(id, message);
         return message;
     }
 
@@ -41,7 +47,7 @@ public class MessageRepositoryImpl implements MessageRepository {
 
     @Override
     public Message update(Message message) {
-        this.msgs.put(message.getId(),message);
+        this.msgs.put(message.getId(), message);
         return message;
     }
 
@@ -49,7 +55,7 @@ public class MessageRepositoryImpl implements MessageRepository {
     public Message updateText(Message message) {
         Message msg = this.msgs.get(message.getId());
         msg.setText(message.getText());
-        this.msgs.put(msg.getId(),msg);
+        this.msgs.put(msg.getId(), msg);
         return msg;
     }
 }

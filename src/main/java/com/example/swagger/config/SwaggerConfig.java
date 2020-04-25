@@ -29,11 +29,14 @@ public class SwaggerConfig {
                 .genericModelSubstitutes(ResponseEntity.class)
                 .useDefaultResponseMessages(false)
                 .forCodeGeneration(true).select()
-                .apis(RequestHandlerSelectors.basePackage("com.spring.api.swagger.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.swagger.controller"))
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
     }
+    /**
+     * 配置页面展示的基本信息：标题、描述、版本、服务条款、联系方式等
+     */
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title("消息管理")

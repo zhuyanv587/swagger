@@ -1,4 +1,4 @@
-package com.example.message.common;
+package com.example.swagger.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
